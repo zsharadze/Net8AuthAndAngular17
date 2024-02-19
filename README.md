@@ -1,4 +1,4 @@
-# Net8 Authentication And Angular 17
+# Net 8 Authentication And Angular 17
 
 This is small application to show example of .Net 8 Web Api and Angular 17 authentication and authorization. Backend uses new identity introduced in .Net 8 and it is based on token authentication.
 
