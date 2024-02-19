@@ -21,4 +21,3 @@ This is small application to show example of .Net 8 Web Api and Angular 17 authe
 
 ###### About me
 My name is Zviad Sharadze. I'm .Net Developer from Tbilisi, Georgia.
-I'm Microsoft Certified Professional.
