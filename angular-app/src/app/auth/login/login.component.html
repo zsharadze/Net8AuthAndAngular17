@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col m-2">
+            <div class="col-md-12 loginForm">
+                <h3>Login</h3>
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName="email" placeholder="Email" style="width: 270px;display: inline-block;" (keyup)="inputChange()"/>
+                        <span 
+                            class="text-danger" 
+                            *ngIf="loginForm.get('email')?.errors && 
+                                loginForm.get('email')?.hasError('required')" style="padding-left: 5px;" title="Email field required"
+                        >*</span>
+                    </div>
+                    <div class="form-group" style="margin-top: 8px;">
+                        <input type="password" class="form-control" formControlName="password"  placeholder="Password" style="width: 270px;display: inline-block;" (keyup)="inputChange()"/>
+                        <span 
+                            class="text-danger" 
+                            *ngIf="loginForm.get('password')?.errors && 
+                                loginForm.get('password')?.hasError('required')" style="padding-left: 5px;" title="Password field required"
+                        >*</span>
+                    </div>
+                    <div *ngIf="invalidLogin" style="color: red;">
+                        Email or password is incorrect
+                    </div>
+                    <div class="form-group" style="margin-top: 8px;">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                    <div class="form-group">
+                        <a [routerLink]="['/register']">Need registration?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

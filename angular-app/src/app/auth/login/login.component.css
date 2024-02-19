@@ -1,0 +1,9 @@
+
+.loginForm{
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  input.ng-touched.ng-invalid {
+    border: 1px solid red;
+  }
