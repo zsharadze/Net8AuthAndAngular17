@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   selector: 'app-login',
   standalone: true,
   imports: [RouterModule, ReactiveFormsModule, CommonModule],
+  providers: [AuthService],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
@@ -27,21 +28,16 @@ export class LoginComponent {
     private router: Router
   ) {}
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   login() {
-    console.log(this.loginForm.value);
-
     if (this.loginForm.invalid) {
-      console.log('form is invalid')
+      console.log('form is invalid');
       return;
     }
 
     this._authService.login(this.loginForm.value as LoginModel).subscribe({
       next: (res: any) => {
-        console.log('login res', res);
         if (res?.accessToken) {
           localStorage.setItem('token', res.accessToken);
           localStorage.setItem('isLoggedIn', 'true');

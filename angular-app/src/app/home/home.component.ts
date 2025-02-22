@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-home',
   standalone: true,
   imports: [RouterModule, CommonModule],
+  providers: [WeatherService],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
@@ -20,8 +21,7 @@ export class HomeComponent {
   ) {}
 
   ngOnInit() {
-    this._weatherService.getWeather().subscribe((res) => {
-      console.log('getWeather res', res);
+    this._weatherService.getWeather().subscribe((res: any) => {
       this.weatherData = res;
     });
   }

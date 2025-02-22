@@ -9,7 +9,7 @@ This is small application to show example of .Net 8 Web Api and Angular 17 authe
 3. Run the Net8AuthWebApi project.
 4. Go to angular-app and open it with Visual Studio Code.
 5. Open terminal and run npm install command to install node modules.
-5. Run Angular project with ng serve -o and you are done.
+5. Run Angular project with npm start and you are done.
 
 ![screenshot](https://github.com/zsharadze/Net8AuthAndAngular17/blob/master/Capture1.png?raw=true)
 

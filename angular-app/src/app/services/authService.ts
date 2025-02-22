@@ -1,42 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { APIurls } from '../urls';
 import { LoginModel } from '../models/login.model';
+import { environment } from '../../environments/environment';
+import { RegisterModel } from '../models/register.model';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class AuthService {
+  apiUrl = environment.API_URL;
   constructor(private http: HttpClient) {
     this.http = http;
   }
 
   login(loginModel: LoginModel) {
-    // let options = { headers: headers, withCredentials: true };
-    let headers = new HttpHeaders({
-      Accept: 'application/json',
-      enctype: 'multipart/form-data',
-    });
-
-    let options = { headers: headers};
-    return this.http.post(
-      APIurls.login,
-      loginModel,
-      options
-    );
+    return this.http.post(this.apiUrl + '/identity/login', loginModel);
   }
 
-  register(loginModel: LoginModel) {
-    let headers = new HttpHeaders({
-      Accept: 'application/json',
-      enctype: 'multipart/form-data',
-    });
-
-    let options = { headers: headers};
-    return this.http.post(
-      APIurls.register,
-      loginModel,
-      options
-    );
+  register(registerModel: RegisterModel) {
+    return this.http.post(this.apiUrl + '/identity/register', registerModel);
   }
 }

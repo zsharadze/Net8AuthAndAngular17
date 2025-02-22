@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
   selector: 'app-register',
   standalone: true,
   imports: [RouterModule, ReactiveFormsModule, CommonModule],
+  providers: [AuthService],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })
@@ -41,7 +42,6 @@ export class RegisterComponent {
   register() {
     this.registerSuccess = false;
     this.emailAlreadyExists = false;
-    console.log(this.registerForm.value);
     if (this.registerForm.invalid) {
       console.log('form is invalid');
       return;
